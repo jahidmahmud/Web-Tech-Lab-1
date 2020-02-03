@@ -1,48 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registation</title>
+	<title>Registation Formm</title>
 </head>
 <body>
-	<ul style="list-style-type:none;">
-		<li><a href="index.html">Home</a></li>
-		<li><a href="aboutus.html">About Us</a></li>
-		<li><a href="contactus.html">Contact Us</a></li>
-		<li><a href="login.html">Log In</a></li>
-		<li><a href="registation.html">registation</a></li>
-	</ul>
+	
 	<form>
-		First Name:
-		<input type="text" name="name"><br><br>
-		Last Name:
-		<input type="text" name="name"><br><br>
-		User Name:
-		<input type="text" name="name"><br><br>
-		Password:
-		<input type="text" name="password"><br><br>
-		Email:
-		<input type="text" name="email"><br><br>
-		
-		Gender:
-		<input type="radio" name="gender" value="male">Male
-		<input type="radio" name="gender" value="female">Female 
-		<input type="radio" name="gender" value="others">Others
-		<br><br>
-		Religion:
-		<input type="radio" name="relegion" value="islam">Islam
-		<input type="radio" name="relegion" value="hindu">Hindu
-		<input type="radio" name="relegion" value="others">Others
-		<br><br>
-		District:
-		<select name="district">
-  		<option value="dhaka">Dhaka</option>
-  		<option value="chittagong">Chittagong</option>
-  		<option value="khulna">Khulna</option>
-  		<option value="manikgonj">Manikgonj</option>
-  		<option value="others">Others</option>
-		</select><br><br>
+		<fieldset>
+			<legend><b>Donor Information</b></legend>
+  First name:
+  <input type="text" name="firstname"><br>
+  Last name:
+  <input type="text" name="lastname"><br>
+  Commpany:
+  <input type="text" name="commpany"><br>
+  Address1:
+  <input type="text" name="add1"><br>
+  Address2:
+  <input type="text" name="add2"><br>
+  City:
+  <input type="text" name="city"><br>
+   State:
+  <select name="state">
+  <option value="ban">Bangladesh</option>
+  <option value="ind">India</option>
+  <option value="pak">Pakistan</option>
+  <option value="mayan">Mmayanmmar</option>
+  <option value="others">Others</option>
+</select>
+<br>
+  Zip Code:
+  <input type="text" name="zip"><br>
+   Country:<br>
+  <select name="country">
+  <option value="ban">Bangladesh</option>
+  <option value="ind">India</option>
+  <option value="pak">Pakistan</option>
+  <option value="mayan">Mmayanmmar</option>
+  <option value="others">Others</option>
+</select>
+<br>
+ Phone:
+  <input type="text" name="phone">
+  <br>
+  Fax:
+  <input type="text" name="fax">
+  <br>
+   Email:
+  <input type="text" name="email">
+  <br>
+  Donation Amount:
+  <input type="radio" name="donation" value="none"> None
+  <input type="radio" name="donation" value="50"> $50
+  <input type="radio" name="donation" value="75"> $75
+  <input type="radio" name="donation" value="100"> $100
+  <input type="radio" name="donation" value="250"> $250
+  <input type="radio" name="donation" value="others"> Others
+  <br><br>
+  Others Amount:
+  <input type="text" name="other">
+  <br>
+  Recurring Donation:
+  <input type="checkbox" name="iam"> I am interested in giving on a rtegular basis.
+  <br>
+  Monthly Credit Card $
+  <input type="text" name="card">
+  For 
+  <input type="text" name="for">
+  Months.
+  <br>
+  <h4><b>Honorarium and Mmemorial Donation Information</b>
+  </h4>
+  <br>
+  I would  like to make this donation:
 
-		<input type="submit" name="Submit">
-	</form>
+  <input type="radio" name="honor">To Honor
+  <br>
+  <input type="radio" name="honor">In Memory Of
+  <br>
+  Name:
+  <input type="text" name="name"><br>
+  Acknowlege Donation to:
+  <input type="text" name="donation"><br>
+  Address:
+  <input type="text" name="add"><br>
+  City:
+  <input type="text" name="city"><br>
+   State:
+  <select name="state">
+  <option value="ban">Bangladesh</option>
+  <option value="ind">India</option>
+  <option value="pak">Pakistan</option>
+  <option value="mayan">Mmayanmmar</option>
+  <option value="others">Others</option>
+</select>
+<br>
+Zip:
+  <input type="text" name="zip1"><br>
+  <h4><b>Additional Information</b></h4>
+  <p>Please enter your name,company or organization as you would like it to appear in our publications</p>
+   Name:
+  <input type="text" name="name1"><br>
+  <input type="checkbox" name="iwould"> I would like to remain anonymous.<br>
+  <input type="checkbox" name="my">My employer offers a maching gift program.I will mall the matching gift formm.
+  <br>
+  <input type="checkbox" name="please"> Please save the cost of this gift by not malling a thank you letter.
+  <br><br> 
+  Comments:
+  <textarea></textarea>
+  <br><br>
+
+  <input type="submit" value="Submit">
+  </fieldset>
+</form>
+
 </body>
 </html>
