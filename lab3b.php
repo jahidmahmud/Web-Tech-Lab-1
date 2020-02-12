@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Form</title>
+  <title>Form</title>
 </head>
 <body>
-	<?php
+  <?php
 $nameErr = $emailErr = $genderErr = $bDayErr =$degreeErr=$bloodErr="";
 $name = $email = $gender = $degree = $dob =$bg="";
 
@@ -42,7 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["deg"])) {
     $degreeErr= "degree is required";
-  } else {
+  } 
+  else {
     $degree = test_input($_POST["deg"]);
   }
 
@@ -61,8 +62,8 @@ function test_input($data) {
   return $data;
 }
 ?>
-	<fieldset style="border:2px solid Tomato; color: green">
-		<legend style="color: SlateBlue"><h3><b>Personal Info</b></h3></legend>
+  <fieldset style="border:2px solid Tomato; color: green">
+    <legend style="color: SlateBlue"><h3><b>Personal Info</b></h3></legend>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
   <b>Name:</b>
   <input type="text" name="name" value="<?php echo $name;?>">
@@ -73,32 +74,46 @@ function test_input($data) {
   <span style="color: red"><b>*<?php echo $emailErr;?></b></span>
   <br><br>
   <b>Date Of Birth:</b>
-  <input type="date" name="bday">
+  <input type="date" name="bday" value="<?php echo $dob;?>">
   <span style="color: red"><b>*<?php echo $bDayErr;?></b></span>
   <br><br>
   <b>Gender:</b>
-  <input type="radio" name="gender" value="male" > Male
-  <input type="radio" name="gender" value="female" > Female
-  <input type="radio" name="gender" value="other" > Other
+  <input type="radio" name="gender" value="male" 
+  <?php if (isset($gender) && $gender=="male") echo "checked";?>
+  value="male" > Male
+  <input type="radio" name="gender" value="female" 
+  <?php if (isset($gender) && $gender=="female") echo "checked";?>
+  value="female"> Female
+  <input type="radio" name="gender" value="other" 
+  <?php if (isset($gender) && $gender=="other") echo "checked";?>
+  value="other" > Other
   <span style="color: red"><b>*<?php echo $genderErr;?></b></span>
   <br><br>
   <b>Degree:</b>
-  <input type="checkbox" name="deg" value="ssc"> SSC
-  <input type="checkbox" name="deg" value="hsc">HSC
-  <input type="checkbox" name="deg" value="bsc">BSc
-  <input type="checkbox" name="deg" value="msc">MSc
+  <input type="checkbox" name="deg"  value="ssc" 
+  <?php if (isset($degree) && $degree=="ssc") echo "checked";?>> SSC
+  <input type="checkbox" name="deg"  value="hsc"
+  <?php if (isset($degree) && $degree=="hsc") echo "checked";?>>HSC
+  <input type="checkbox" name="deg"  value="bsc"
+  <?php if (isset($degree) && $degree=="bsc") echo "checked";?>>BSc
+  <input type="checkbox" name="deg"  value="msc"
+  <?php if (isset($degree) && $degree=="msc") echo "checked";?>>MSc
   <span style="color: red"><b>*<?php echo $degreeErr;?></b></span>
   <br><br>
   <b>Blood Group:</b>
-  <select name="blood">
-  <option value="b+">B+</option>
-  <option value="a+">A+</option>
-  <option value="ab+">AB+</option>
-  <option value="o+">O+</option>
+  <select name="blood" >
+  <option value="b+" 
+  <?php if (isset($bg) && $bg=="b+") echo "selected";?>>B+</option>
+  <option value="a+" 
+  <?php if (isset($bg) && $bg=="a+") echo "selected";?>>A+</option>
+  <option value="ab+" 
+  <?php if (isset($bg) && $bg=="ab+") echo "selected";?>>AB+</option>
+  <option value="o+"
+  <?php if (isset($bg) && $bg=="o+") echo "selected";?>>O+</option>
   </select>
   <span style="color: red"><b><?php echo $bloodErr;?></b></span> 
   <br><br>
-  <input type="submit" value="Submit" style="color: blue" style="height:600px;width:600px">
+  <input type="submit" name="submit" value="Submit" style="color: blue" style="height:600px;width:600px">
   </fieldset>
 </form>
 <?php
