@@ -5,7 +5,7 @@
 <body> 
 <?php 
 if (isset($_REQUEST['ok'])) { 
-$xml = new DOMDocument("1.0","UTF-8"); 
+$xml = new DOMDocument("1.0","UTF-8",true); 
 $xml->load("a.xml"); 
 
 $rootTag = $xml->getElementsByTagName("document")->item(0); 
