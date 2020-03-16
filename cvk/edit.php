@@ -43,7 +43,7 @@ li a:hover:not(.active) {
 <ul>
   <li style="float: left;color:white;margin: 10px;border-right: none;"> <h2>Xcompany</h2></li>
 
-  <li><a href="home.php">logout</a></li>
+  <li><a href="table.php">logout</a></li>
     <li><a href="profile.php"><?php 
     session_start();
     echo $_SESSION["login_user"]?></a></li>
@@ -61,13 +61,15 @@ li a:hover:not(.active) {
 <br><br>
 <a href="pass.php">Change Password</a>
 <br><br>
-<a href="home.php">Log out</a>
+<a href="add.php">Add Product</a>
+<br><br>
+<a href="table.php">Log out</a>
 <br><br>
 </div>
 
 
 
-<div style=" padding:1px 16px;height:500px;width: 600px; float: left;">
+<div style=" margin-left: 30px;padding:1px 16px;height:500px;width: 600px; float: left;">
 <?php
   $servername = "localhost";
   $username = "root";
@@ -88,7 +90,7 @@ li a:hover:not(.active) {
 
  ?>
 
-<form action="update.php" method="post">
+<form action="update.php" method="post" style="background-color: #F8F8FF">
 <fieldset>
   <legend style="font-size: 25px"><b>Edit Profile</b></legend>
   <br>
@@ -103,10 +105,10 @@ li a:hover:not(.active) {
   <input type="text" name="uname" value="<?php echo $row['uname']; ?>"><br>
   <hr>
   <b>Password:</b>
-  <input type="Password" name="password" value="<?php echo $row['password']; ?>"><br>
+  <input type="text" name="password" value="<?php echo $row['password']; ?>"><br>
   <hr>
   <b>Confirm Password:</b>
-  <input type="Password" name="cpassword" value="<?php echo $row['cpassword']; ?>"><br>
+  <input type="text" name="cpassword" value="<?php echo $row['cpassword']; ?>"><br>
   <hr>
   <fieldset>
   <legend><b>Gender</b></legend>

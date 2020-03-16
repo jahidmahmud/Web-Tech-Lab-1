@@ -48,7 +48,7 @@ li a:hover:not(.active) {
   <li><a href="home.php">Home</a></li>
 </ul>
 
-<form style="margin-top: 50px; margin-left: 40px;width: 60%" action="rtask.php" method="post">
+<form style="margin-top: 50px; margin-left: 40px;width: 60% ;background-color:#F5F5F5" action="rtask.php" method="post">
 <fieldset>
   <legend style="font-size: 25px"><b>Registation</b></legend>
   <br>

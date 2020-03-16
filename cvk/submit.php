@@ -5,7 +5,6 @@
   table, th, td {
   border: 1px solid black;
   background-color: #FFFAFA ;
-  border-collapse: collapse;
 }
 th, td {
   padding: 10px;
@@ -14,7 +13,6 @@ th{
   background-color: gray;
   color :white;
 }
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -56,7 +54,7 @@ li a:hover:not(.active) {
 <ul>
   <li style="float: left;color:white;margin: 10px;border-right: none;"> <h2>Xcompany</h2></li>
 
-  <li><a href="table.php">logout</a></li>
+  <li><a href="home.php">logout</a></li>
     <li><a href="profile.php"><?php 
     session_start();
     echo $_SESSION["login_user"]?></a></li>
@@ -74,9 +72,7 @@ li a:hover:not(.active) {
 <br><br>
 <a href="pass.php">Change Password</a>
 <br><br>
-<a href="add.php">Add Product</a>
-<br><br>
-<a href="table.php">Log out</a>
+<a href="home.php">Log out</a>
 <br><br>
 </div>
 
@@ -85,53 +81,47 @@ li a:hover:not(.active) {
 <div style=" padding:1px 16px;margin-left: 30px; height:500px;width: 600px; float: left;">
 
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "mydb";
-$conn = new mysqli($servername, $username, $password,$dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+ 	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "mydb";
+	$conn = new mysqli($servername, $username, $password,$dbname);
+	if ($conn->connect_error) {
+	    die("Connection failed: " . $conn->connect_error);
+	}
+	$idk=$_GET['id'];
 
-$sql = "select * from products";
+	$sql = "select * from products where id=$idk";
 
-$result = $conn->query($sql);
+	$result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
 
-?>
-<table style="width:100%">
-  <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Quantity</th>
-    <th>Action</th>
-  </tr>
-  <?php 
-    while($row = $result->fetch_assoc()) {
-   ?>
-  <tr>
-    <td><?php echo $row['id']; ?></td>
-    <td><?php echo $row['name']; ?></td>
-    <td><?php echo $row['description']; ?></td>
-    <td><?php echo $row['quantity']; ?></td>
-    <td>
-      <a href='submit.php?id=<?php echo $row['id']; ?>' style="color: green;padding-right: 40px;">Update</a>
-      <a href='delete.php?id=<?php echo $row['id']; ?>' style="color: red;padding-right: 40px;">Delete</a>
-    </td>
-  </tr>
-  <?php } ?>
-</table>
-<?php } 
-else{
-  echo "no data found";
-}
-?>
-<?php 
-  $conn->close();
  ?>
+<form method="post" action="3.php" style="background-color: #F8F8FF">
+<fieldset>
+	<legend style="font-size: 25px"><b>Update Products</b></legend><br>
+  Name:
+  <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+  <input type="text" name="name" value="<?php echo $row['name']; ?>"><br>
+  <br>
+   Description:
+   <textarea name="message" rows="5" cols="30"> <?php echo $row['description']; ?></textarea>
+   <br>
+   <br>
+   Quantity:
+  <input type="number" name="quantity" value="<?php echo $row['quantity']; ?>"><br><br>
+   <input type="submit" value="submit">
+</fieldset>
+</form>
+
+ <?php
+	}
+}
+$conn->close();
+ ?>
+
   
 </div>
 <div class="footer">

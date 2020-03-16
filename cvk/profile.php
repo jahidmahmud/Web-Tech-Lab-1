@@ -43,7 +43,7 @@ li a:hover:not(.active) {
 <ul>
   <li style="float: left;color:white;margin: 10px;border-right: none;"> <h2>Xcompany</h2></li>
 
-  <li><a href="home.php">logout</a></li>
+  <li><a href="table.php">logout</a></li>
     <li><a href="profile.php"><?php 
     session_start();
     echo $_SESSION["login_user"]?></a></li>
@@ -61,7 +61,9 @@ li a:hover:not(.active) {
 <br><br>
 <a href="pass.php">Change Password</a>
 <br><br>
-<a href="home.php">Log out</a>
+<a href="add.php">Add Product</a>
+<br><br>
+<a href="table.php">Log out</a>
 </div>
 <div style=" padding:1px 20px;height:500px;width: 600px; float: left;margin: auto;">
 
@@ -85,41 +87,38 @@ li a:hover:not(.active) {
 
  ?>
 
-<form style="width: 100%;margin-left: 30px;padding: 1px" action="" method="post">
+<form style="width: 100%;margin-left: 30px;padding: 1px;background-color: #F8F8FF" action="" method="post">
 <fieldset>
   <legend style="font-size: 25px"><b>My Profile</b></legend>
   <img src="<?php echo $row['image']; ?>" style="height: 110px;width: 130px">
   <br>
   <b>Name:</b>
   <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-  <input type="text" name="name" value="<?php echo $row['name']; ?>"><br>
+  <input type="text" name="name" value="<?php echo $row['name']; ?>" readonly><br>
   <hr>
   <b>Email:</b>
-  <input type="text" name="email" value="<?php echo $row['email']; ?>"><br>
+  <input type="text" name="email" value="<?php echo $row['email']; ?>" readonly><br>
   <hr>
   <b>User Name:</b>
-  <input type="text" name="uname" value="<?php echo $row['uname']; ?>"><br>
+  <input type="text" name="uname" value="<?php echo $row['uname']; ?>" readonly><br>
   <hr>
   <b>Password:</b>
-  <input type="Password" name="password" value="<?php echo $row['password']; ?>"><br>
-  <hr>
-  <b>Confirm Password:</b>
-  <input type="Password" name="cpassword" value="<?php echo $row['cpassword']; ?>"><br>
+  <input type="text" name="password" value="<?php echo $row['password']; ?>" readonly><br>
   <hr>
   <fieldset>
   <legend><b>Gender</b></legend>
   <input type="radio" name="gender" value="male" <?php if($row['gender']=="male") echo "checked";?>
-  value="male">Male
+  value="male" >Male
   <input type="radio" name="gender" value="female" <?php if ($row['gender']=="female") echo "checked";?>
-  value="female">Female
+  value="female" >Female
   <input type="radio" name="gender" value="others" <?php if ($row['gender']=="others") echo "checked";?>
-  value="others">Others
+  value="others" >Others
   <br>
   </fieldset>
   <hr>
   <fieldset>
     <legend><b>Date of Birth</b></legend>
-  <input type="Date" name="date" value="<?php echo $row['date']; ?>">(dd/mm/yyyy)
+  <input type="Date" name="date" value="<?php echo $row['date']; ?>" readonly>(dd/mm/yyyy)
   <br>
   </fieldset>
 </fieldset>

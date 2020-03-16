@@ -48,10 +48,11 @@ li a:hover:not(.active) {
   <li><a href="home.php">Home</a></li>
 </ul>
 
-<form style="margin-top: 50px;margin-left: 40px;width: 40%" action="task.php" method="post">
+<form style="margin-top: 50px;margin-left: 40px;width: 40%;background-color: #F5F5F5" action="task.php" method="post">
 <fieldset>
   <legend style="font-size: 25px"><b>Login Form</b></legend>
-  <br>
+  <img src="l.png" style="height: 80px;width: 100px">
+  <br><br>
   <b>Username:</b>
   <input type="text" name="name"><br><br>
   <b>Password:</b>

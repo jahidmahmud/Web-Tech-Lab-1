@@ -5,7 +5,6 @@
   table, th, td {
   border: 1px solid black;
   background-color: #FFFAFA ;
-  border-collapse: collapse;
 }
 th, td {
   padding: 10px;
@@ -14,7 +13,6 @@ th{
   background-color: gray;
   color :white;
 }
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -84,54 +82,20 @@ li a:hover:not(.active) {
 
 <div style=" padding:1px 16px;margin-left: 30px; height:500px;width: 600px; float: left;">
 
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "mydb";
-$conn = new mysqli($servername, $username, $password,$dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "select * from products";
-
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-
-?>
-<table style="width:100%">
-  <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Quantity</th>
-    <th>Action</th>
-  </tr>
-  <?php 
-    while($row = $result->fetch_assoc()) {
-   ?>
-  <tr>
-    <td><?php echo $row['id']; ?></td>
-    <td><?php echo $row['name']; ?></td>
-    <td><?php echo $row['description']; ?></td>
-    <td><?php echo $row['quantity']; ?></td>
-    <td>
-      <a href='submit.php?id=<?php echo $row['id']; ?>' style="color: green;padding-right: 40px;">Update</a>
-      <a href='delete.php?id=<?php echo $row['id']; ?>' style="color: red;padding-right: 40px;">Delete</a>
-    </td>
-  </tr>
-  <?php } ?>
-</table>
-<?php } 
-else{
-  echo "no data found";
-}
-?>
-<?php 
-  $conn->close();
- ?>
+<form  method="post" action="ad.php" style="background-color: #F8F8FF">
+<fieldset>
+	<legend style="font-size: 25px"><b>Add Product</b></legend>
+	<br>
+  Name:
+  <input type="text" name="name" ><br><br>
+   Description:
+   <textarea name="message" rows="5" cols="30"></textarea>
+   <br><br>
+   Quantity:
+  <input type="number" name="quantity"><br><br>
+   <input type="submit" value="submit">
+</fieldset>
+</form>
   
 </div>
 <div class="footer">

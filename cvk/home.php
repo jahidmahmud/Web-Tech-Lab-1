@@ -2,6 +2,20 @@
 <html>
 <head>
 <style>
+  table, th, td {
+  border: 1px solid black;
+  background-color: #FFFAFA ;
+}
+th, td {
+  padding: 15px;
+}
+th{
+  background-color: #DCDCDC;
+  color: black;
+}
+table{
+  width: 50%;
+}
 ul {
   list-style-type: none;
   margin: 0;
@@ -49,6 +63,7 @@ li a:hover:not(.active) {
 </ul>
 
 <h2 style="margin-top: 100px;margin-left: 40px;font-size: 50px"><b> Welcome to xCompany</b></h2>
+
 
 <div class="footer">
 <p> Copyright @ 2017</p>
